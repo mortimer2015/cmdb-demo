@@ -1,2 +1,2 @@
 # cmdb-demo
-简易cmdb
+基础的flask脚手架
