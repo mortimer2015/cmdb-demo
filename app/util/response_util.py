@@ -33,8 +33,8 @@ def json_response(func):
             output['message'] = '网络繁忙'
             output['info'] = traceback.format_exc()
             print(traceback.format_exc())
-            logger.Error(traceback.format_exc())
-            logger.Error("Unexpect Error: {}".format(str(e)))
+            logger.error(traceback.format_exc())
+            logger.error("Unexpect Error: {}".format(str(e)))
         return jsonify(output)
 
     return wrapper

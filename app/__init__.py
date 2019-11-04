@@ -8,6 +8,9 @@ from flask_sqlalchemy import SQLAlchemy
 from config import conf
 from logging.config import dictConfig
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
 bootstrap = Bootstrap()
 mail = Mail()
 moment = Moment()
@@ -27,6 +30,8 @@ def create_app():
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    from .asset import asset as asset_blueprint
+    app.register_blueprint(asset_blueprint)
 
     return app
 

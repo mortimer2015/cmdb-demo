@@ -39,8 +39,14 @@ class DevelopmentConfig(Config):
     description = "开发环境"
     DEBUG = True
     debug = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
+    #     'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    SQLALCHEMY_DATABASE_URI = "mysql://{username}:{password}@{host}/{database}?charset={charset}".format(
+        username="root",
+        password="123",
+        host="{}:{}".format("172.16.252.134", "3306"),
+        database="my-db",
+        charset="utf8mb4")
 
 
 class TestingConfig(Config):
